@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Salesforce Embedded Messaging</title>
+  <script type='text/javascript'>
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = 'en_US'; // Set the language
+
+        embeddedservice_bootstrap.init(
+          '00DDV000000tcBY', // Replace with your Deployment ID
+          'Xenial_Support_Chat', // Replace with your Button ID
+          'https://sicom--chat.sandbox.my.site.com/ESWXenialSupportChat1738258564026', // Replace with your Embedded Service URL
+          {
+            scrt2URL: 'https://sicom--chat.sandbox.my.salesforce-scrt.com' // Replace with your Secure Token URL
+          }
+        );
+      } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+      }
+    }
+  </script>
+  <script type='text/javascript' src='https://sicom--chat.sandbox.my.site.com/ESWXenialSupportChat1738258564026/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+</head>
+<body>
+  <h1>Welcome to the Salesforce Embedded Messaging Test Page</h1>
+  <p>This is a basic HTML page to test the Salesforce Embedded Messaging widget.</p>
+</body>
+</html>
