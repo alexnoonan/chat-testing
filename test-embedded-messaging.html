@@ -13,7 +13,21 @@
     function initEmbeddedMessaging() {
       try {
         embeddedservice_bootstrap.settings.language = 'en_US'; // Set the language
-
+            // Enable and configure the pre-chat form
+            embeddedservice_bootstrap.settings.prechatEnabled = true;
+            embeddedservice_bootstrap.settings.extraPrechatInfo = [
+                {
+                    "label": "Product",
+                    "transcriptFields": ["Product"],
+                    "displayToAgent": true
+                },
+                {
+                    "label": "Brand",
+                    "transcriptFields": ["Brand"],
+                    "displayToAgent": true
+                }
+            ];
+        
         embeddedservice_bootstrap.init(
           '00DDV000000tcBY', // Replace with your Deployment ID
           'Xenial_Support_Chat', // Replace with your Button ID
@@ -30,3 +44,4 @@
   <script type='text/javascript' src='https://sicom--chat.sandbox.my.site.com/ESWXenialSupportChat1738258564026/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
+
