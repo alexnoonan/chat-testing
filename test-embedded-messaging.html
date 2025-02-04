@@ -2,6 +2,29 @@
 <html>
 <head>
     <title>Test Chat</title>
+<script type='text/javascript'>
+    var user;
+    window.addEventListener('userInfo', function(e){
+        user = e.detail;   
+    });
+    window.addEventListener("onEmbeddedMessagingReady", e => {
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            //"_firstName": {
+            //    "value": user.firstName,
+            //    "isEditableByEndUser": false
+            //},
+            //"_lastName": {
+            //    "value": user.lastName,
+            //    "isEditableByEndUser": false
+            //},
+            "_subject": {
+                "value": user.email,
+                "isEditableByEndUser": false
+            }
+        });
+    });
+</script>    
+    
 </head>
 <body>
     <h1>Test Chat Page</h1>
@@ -10,22 +33,22 @@
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // Set the language
 
-                window.addEventListener("onEmbeddedMessagingReady", e=> {
-                    embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+//                window.addEventListener("onEmbeddedMessagingReady", e=> {
+//                    embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
                         //"Product": {
                           //  "value": "Prod1",
                         //    "isEditableByEndUser": true
                         //},
-                        "_subject": {
-                            "value": "Testing",
-                            "isEditableByEndUser": true
+//                        "_subject": {
+//                            "value": "Testing",
+//                            "isEditableByEndUser": true
                         //},
                         //"Brand": {
                         //    // "value": "Brand1",
                         //    "isEditableByEndUser": true
-                        }
-                    });
-                });
+//                        }
+                    //});
+                //});
 
                 embeddedservice_bootstrap.init(
                     '00DDV000000tcBY', // Replace with your Deployment ID
