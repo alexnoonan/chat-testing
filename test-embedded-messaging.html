@@ -13,7 +13,11 @@
                 window.addEventListener("onEmbeddedMessagingReady", e=> {
                     embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
                         "Product": {
-                            "value": "Prod1",
+                          //  "value": "Prod1",
+                            "isEditableByEndUser": true
+                        },
+                        "Brand": {
+                            // "value": "Brand1",
                             "isEditableByEndUser": true
                         }
                     });
