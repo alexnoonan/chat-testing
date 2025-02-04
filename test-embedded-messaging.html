@@ -10,6 +10,15 @@
             try {
                 embeddedservice_bootstrap.settings.language = 'en_US'; // Set the language
 
+                window.addEventListener("onEmbeddedMessagingReady", e=> {
+                    embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+                        "_Product": {
+                            "value": "Testing",
+                            "isEditableByEndUser": true
+                        }
+                    });
+                });
+
                 embeddedservice_bootstrap.init(
                     '00DDV000000tcBY', // Replace with your Deployment ID
                     'Xenial_Support_Chat', // Replace with your Button ID
@@ -17,19 +26,19 @@
                     {
                         scrt2URL: 'https://sicom--chat.sandbox.my.salesforce-scrt.com', // Replace with your Secure Token URL
                         prechatEnabled: true, // Ensure pre-chat is enabled
-                        extraPrechatInfo:  // embeddedservice_bootstrap.settings.extraPrechatInfo Add pre-chat fields
-                [
-                    {
-                        "label": "Product", // Label displayed to the user
-                        "transcriptFields": ["Product"], // API Name in Salesforce
-                        "displayToAgent": true
-                    },
-                    {
-                        "label": "Brand", // Label displayed to the user
-                        "transcriptFields": ["Brand"], // API Name in Salesforce
-                        "displayToAgent": true
-                    }
-                ]
+//                        extraPrechatInfo:  // embeddedservice_bootstrap.settings.extraPrechatInfo Add pre-chat fields
+//                [
+//                    {
+//                        "label": "Product", // Label displayed to the user
+//                        "transcriptFields": ["Product"], // API Name in Salesforce
+//                        "displayToAgent": true
+//                    },
+//                    {
+//                        "label": "Brand", // Label displayed to the user
+//                        "transcriptFields": ["Brand"], // API Name in Salesforce
+//                        "displayToAgent": true
+//                    }
+//                ]
                     }
                 );
             } catch (err) {
